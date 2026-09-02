@@ -15,29 +15,34 @@ const HOLD_MS = 6000;
 
 export default function Gallery() {
   const [index, setIndex] = useState(0);
+  const [started, setStarted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pausedRef = useRef(false);
 
-  const restart = useCallback(() => {
+  const startTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       if (!pausedRef.current) setIndex((i) => (i + 1) % images.length);
     }, HOLD_MS);
   }, []);
 
+  // Holds on the first image, untouched, until a guest chooses to move on.
   useEffect(() => {
-    restart();
+    if (!started) return;
+    startTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [started, startTimer]);
+
+  useEffect(() => {
     const onVisibility = () => { pausedRef.current = document.hidden; };
     document.addEventListener('visibilitychange', onVisibility);
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-      document.removeEventListener('visibilitychange', onVisibility);
-    };
-  }, [restart]);
+    return () => document.removeEventListener('visibilitychange', onVisibility);
+  }, []);
 
   const goTo = (i: number) => {
     setIndex(i);
-    restart();
+    setStarted(true);
+    startTimer();
   };
 
   return (
