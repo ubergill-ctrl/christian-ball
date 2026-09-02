@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-/* TODO — confirm venue, address, nearest stations and any hotel arrangement. */
-const VENUE = process.env.NEXT_PUBLIC_EVENT_VENUE || 'Venue to be confirmed';
+const VENUE = process.env.NEXT_PUBLIC_EVENT_VENUE || 'Hillbark Hotel & Spa';
+const VENUE_URL = 'https://hillbarkhotel.co.uk';
 
 export default function VenueGuide() {
   return (
@@ -19,15 +19,15 @@ export default function VenueGuide() {
             <span className="label label--quiet">The venue</span>
             <h3 style={{ margin: '0.5rem 0 0.35rem' }}>{VENUE}</h3>
             <p className="small" style={{ color: 'var(--gilt)', marginBottom: '1rem' }}>
-              Address to be confirmed &middot; London
+              Royden Park, Frankby, Wirral, CH48 1NP
             </p>
             <p className="small muted" style={{ marginBottom: '1.5rem' }}>
-              A sprung floor, a gallery for the reception, and a room that holds a
-              hundred and eighty at table without anyone shouting.
+              A country house on the edge of the Wirral countryside, twenty minutes
+              from Liverpool city centre and five from the M53.
             </p>
             <a
               className="btn btn--line btn--block"
-              href="https://www.google.com/maps"
+              href="https://www.google.com/maps/search/?api=1&query=Hillbark+Hotel+Royden+Park+Frankby+Wirral+CH48+1NP"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -39,22 +39,25 @@ export default function VenueGuide() {
             <div className="ord-item">
               <time>Rail</time>
               <div>
-                <h4>By Underground</h4>
-                <p>Nearest stations to be confirmed. Five minutes on foot either way.</p>
+                <h4>By train</h4>
+                <p>Liverpool Lime Street is around twenty minutes away by car or taxi; Chester about twenty-five.</p>
               </div>
             </div>
             <div className="ord-item">
               <time>Car</time>
               <div>
                 <h4>Parking</h4>
-                <p>No parking at the venue. The nearest car park is a short walk; a taxi rank sits on the corner.</p>
+                <p>Ample parking on site &mdash; no need to hunt for a space or a meter.</p>
               </div>
             </div>
             <div className="ord-item">
               <time>Bed</time>
               <div>
                 <h4>Staying over</h4>
-                <p>Two hotels within ten minutes hold a small block for guests. Details to follow with your confirmation.</p>
+                <p>
+                  Hillbark is itself a hotel; rooms can be booked directly with them at{' '}
+                  <a href={VENUE_URL} target="_blank" rel="noopener noreferrer">hillbarkhotel.co.uk</a>.
+                </p>
               </div>
             </div>
           </div>

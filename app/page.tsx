@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import FilmFeature from '@/components/FilmFeature';
 import Schedule from '@/components/Schedule';
 import Speakers from '@/components/Speakers';
 import DressCode from '@/components/DressCode';
@@ -19,29 +20,28 @@ export default function Home() {
     <main>
       <Navbar onOpenRsvp={openRsvp} />
       <Hero onOpenRsvp={openRsvp} />
+      <FilmFeature />
 
       {/* Why we hold it — a plain paragraph, not a mission statement. */}
-      <section id="about" className="section section--ruled">
+      <section id="about" className="section">
         <div className="container">
           <div className="sec-head">
             <span className="label">Why we hold it</span>
-            <h2>A dinner, a band, and a collection</h2>
+            <h2>A dinner, a band, and a ceilidh</h2>
           </div>
 
           <div className="grid-2" style={{ alignItems: 'start' }}>
             <div className="stack">
               <p>
-                The ball began as a handful of parishes deciding that the Saturday
-                before Advent ought to be spent at a table with people they liked,
-                and that if a hundred and eighty of us were going to have dinner
-                anyway, the surplus might as well go somewhere useful.
+                The evening began as a handful of Orthodox parishes deciding that
+                their young people ought to have a proper night out together &mdash;
+                dinner, a live band, and dancing that does not require a partner
+                you already know.
               </p>
               <p className="muted">
-                {/* TODO — replace with last year's real figure and charity. */}
-                Last year the evening raised a sum the committee published in full
-                the following week, as it does every year. Nobody on the committee
-                is paid, and the ticket price covers the room and the food before
-                it covers anything else.
+                It is deliberately laid-back: no dress code to fret over, no set
+                menu to agonise about, and a caller who will have you through a
+                Gay Gordons whether you have danced one before or not.
               </p>
             </div>
 
@@ -49,22 +49,22 @@ export default function Home() {
               <div className="ord-item">
                 <time>Dinner</time>
                 <div>
-                  <h4>Three courses, seated</h4>
-                  <p>Cooked properly, served at table, finished before the speeches.</p>
+                  <h4>Two courses, seated</h4>
+                  <p>Chef&rsquo;s choice, served at table, no fuss made of it.</p>
                 </div>
               </div>
               <div className="ord-item">
                 <time>Music</time>
                 <div>
-                  <h4>A band, and a caller</h4>
-                  <p>Waltz, polka and the Gay Gordons. You need not know the steps.</p>
+                  <h4>A five-piece ceilidh band, and a caller</h4>
+                  <p>Every dance talked through first. You need not know the steps.</p>
                 </div>
               </div>
               <div className="ord-item">
-                <time>Appeal</time>
+                <time>Dress</time>
                 <div>
-                  <h4>Ten minutes, once</h4>
-                  <p>One appeal, after dinner. No auction, no raffle at every table.</p>
+                  <h4>Regional dress, or smart casual</h4>
+                  <p>A jacket is welcome. A black tie is not required.</p>
                 </div>
               </div>
             </div>

@@ -9,10 +9,11 @@ export default function DressCode() {
         <div className="column">
         <div className="sec-head">
           <span className="label">Dress</span>
-          <h2>Black tie, or the dress of your own tradition</h2>
+          <h2>Regional dress, or smart casual</h2>
           <p>
-            Come as you would to a wedding you cared about. Nobody will be turned
-            away at the door over a lounge suit.
+            This is not a black-tie evening. Come as you would to a good parish
+            gathering &mdash; a jacket is welcome, national and regional dress more
+            welcome still, and nobody will be turned away over either.
           </p>
         </div>
 
@@ -20,8 +21,8 @@ export default function DressCode() {
           <div>
             <h3 style={{ marginBottom: '1rem' }}>For men</h3>
             <ul className="marked">
-              <li>Dinner jacket and black tie, or a dark suit if you have not got one.</li>
-              <li>White shirt. Polished shoes you can dance in.</li>
+              <li>A jacket, or the regional dress of your own tradition.</li>
+              <li>Shoes you can dance a ceilidh in &mdash; the floor gets used.</li>
               <li>Clergy: cassock or clerical dress is entirely welcome.</li>
             </ul>
           </div>
@@ -29,9 +30,9 @@ export default function DressCode() {
           <div>
             <h3 style={{ marginBottom: '1rem' }}>For women</h3>
             <ul className="marked">
-              <li>Long or cocktail-length; whatever you would wear to a good wedding.</li>
-              <li>Shoes for a sprung floor. There will be a polka.</li>
-              <li>The gallery is cool before dinner &mdash; a wrap is worth bringing.</li>
+              <li>Smart casual, or the national dress of your own tradition.</li>
+              <li>Flat or low shoes are worth it &mdash; the ceilidh is not gentle.</li>
+              <li>Bring a wrap; the hall is cool before dinner.</li>
             </ul>
           </div>
         </div>

@@ -31,7 +31,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
   if (!isOpen) return null;
 
   /* TODO — this form does not send anywhere yet. Wire it to a Vercel route
-     handler, Formspree, or the committee's inbox before launch. */
+     handler, Formspree, or Fr Paul's inbox before launch. */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSent(true);
@@ -44,7 +44,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
       className="modal-veil"
       role="dialog"
       aria-modal="true"
-      aria-label="Write to the committee"
+      aria-label="Write to Fr Paul"
       onClick={(e) => { if (e.target === e.currentTarget) close(); }}
     >
       <div className="modal">
@@ -55,7 +55,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
         {sent ? (
           <div className="stack">
             <span className="label">Thank you</span>
-            <h3>Your note has reached the committee</h3>
+            <h3>Your note has reached Fr Paul</h3>
             <hr className="gilt-rule" />
             <p className="muted">
               Thank you, {form.name || 'friend'}. Someone will write back to{' '}
@@ -68,10 +68,10 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
           </div>
         ) : (
           <>
-            <span className="label">Write to the committee</span>
+            <span className="label">Write to Fr Paul</span>
             <h3 style={{ margin: '0.5rem 0 0.4rem' }}>Questions, invoices and dietary notes</h3>
             <p className="small muted" style={{ marginBottom: '1.5rem' }}>
-              This is not a booking. It reaches the committee, who will write back.
+              This is not a booking. It reaches Fr Paul, who will write back.
             </p>
 
             <form onSubmit={handleSubmit} className="stack">
@@ -145,7 +145,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
               </div>
 
               <button type="submit" className="btn btn--fill btn--block" style={{ marginTop: '0.5rem' }}>
-                Send to the committee
+                Send to Fr Paul
               </button>
             </form>
           </>

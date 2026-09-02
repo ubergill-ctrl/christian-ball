@@ -10,8 +10,8 @@ const tiers = [
     price: '£65',
     per: 'per guest, dinner included',
     includes: [
-      'Reception and three courses at table',
-      'Dancing until midnight',
+      'Reception and two courses at table',
+      'Dancing until half eleven',
       'Programme and order of the evening',
     ],
     link: process.env.NEXT_PUBLIC_STRIPE_INDIVIDUAL_LINK,
@@ -38,7 +38,7 @@ const tiers = [
     includes: [
       'A table of eight, named as you wish',
       'Your parish or company named in the programme',
-      'A word with the speakers before dinner, if you would like one',
+      'A word with Fr Paul before dinner, if you would like one',
     ],
     link: process.env.NEXT_PUBLIC_STRIPE_VIP_LINK,
     lead: false,
@@ -53,8 +53,8 @@ export default function TicketBooking({ onOpenRsvp }: { onOpenRsvp: () => void }
           <span className="label">Places at table</span>
           <h2>Taking a place</h2>
           <p>
-            Every price includes dinner. What is left after the evening has paid for
-            itself goes to the charity, and the committee publishes the figure afterwards.
+            Every price includes dinner and the ceilidh band. Take a single place,
+            a pair, or a table for your parish or youth group.
           </p>
         </div>
 
@@ -100,9 +100,9 @@ export default function TicketBooking({ onOpenRsvp }: { onOpenRsvp: () => void }
         </div>
 
         <p className="small quiet" style={{ marginTop: '2.5rem' }}>
-          Payment is handled by Stripe; the committee never sees your card details.
-          If the price is the thing standing in your way, write to us &mdash; a
-          number of places are held back each year for exactly that reason.
+          Payment is handled by Stripe; we never see your card details.
+          If the price is the thing standing in your way, write to Fr Paul &mdash;
+          a number of places are held back each year for exactly that reason.
         </p>
       </div>
     </section>

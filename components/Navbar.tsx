@@ -26,8 +26,8 @@ export default function Navbar({ onOpenRsvp }: { onOpenRsvp: () => void }) {
     <header className="site-head" data-scrolled={scrolled || open}>
       <div className="container inner">
         <a href="#" className="wordmark">
-          <span className="name">The Christian Ball</span>
-          <span className="year">London &middot; MMXXVI</span>
+          <span className="name">Saint Gabriel&rsquo;s Ceilidh</span>
+          <span className="year">Wirral &middot; 2026</span>
         </a>
 
         <nav className="nav-links" aria-label="Primary">

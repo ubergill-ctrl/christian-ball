@@ -6,27 +6,27 @@ const order = [
   {
     time: '6.00',
     title: 'Reception',
-    note: 'Guests received in the long gallery. Sherry, elderflower and a string trio.',
+    note: 'Guests received as they arrive. Something to drink, and the band tuning up.',
   },
   {
     time: '7.00',
     title: 'Grace and dinner',
-    note: 'Grace said by the chaplain, followed by three courses at table.',
+    note: 'Grace said, followed by a relaxed two courses at table &mdash; chef’s choice.',
+  },
+  {
+    time: '8.15',
+    title: 'A short address',
+    note: 'A few words from Fr Paul. Ten minutes, no longer.',
   },
   {
     time: '8.45',
-    title: 'The address and the appeal',
-    note: 'A short address, then the appeal on behalf of the charity. Ten minutes, no longer.',
-  },
-  {
-    time: '9.15',
-    title: 'Dancing',
-    note: 'A small band. Waltz, polka and the Gay Gordons; a caller for those who need one.',
+    title: 'The ceilidh',
+    note: 'A five-piece band and a caller. Every dance talked through before it starts.',
   },
   {
     time: '11.30',
-    title: 'Compline and carriages',
-    note: 'Compline sung for those who wish to stay. The rest of us find our coats.',
+    title: 'Carriages',
+    note: 'The band plays out, and we find our coats.',
   },
 ];
 
