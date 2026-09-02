@@ -47,7 +47,7 @@ export default function VenueGuide() {
               <time>Car</time>
               <div>
                 <h4>Parking</h4>
-                <p>Ample parking on site &mdash; no need to hunt for a space or a meter.</p>
+                <p>Ample parking on site, no need to hunt for a space or a meter.</p>
               </div>
             </div>
             <div className="ord-item">

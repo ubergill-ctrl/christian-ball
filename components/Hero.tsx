@@ -9,7 +9,7 @@ export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
   return (
     <section className="container hero">
       <span className="label">
-        Saturday, the seventh of November
+        Saturday, the seventh of November 2026
       </span>
 
       <h1>
@@ -22,11 +22,12 @@ export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
       <p className="invitation narrow">
         You are warmly invited to an evening of dinner, music and dancing at Hillbark,
         with a five-piece ceilidh band and a caller to see you through the steps.
-        Regional and national dress is as welcome as a jacket &mdash; come as you would
+        Regional and national dress is as welcome as a jacket: come as you would
         to a good parish gathering, not a formal ball.
       </p>
 
       <div className="hero-meta">
+        <span className="hero-meta__date"><b>Saturday 7 November 2026</b></span>
         <span><b>Six o&rsquo;clock</b> &middot; reception</span>
         <span><b>{VENUE}</b> &middot; {CITY}</span>
         <span><b>Regional dress or smart casual</b></span>

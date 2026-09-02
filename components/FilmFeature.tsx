@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-/* TODO — set NEXT_PUBLIC_YOUTUBE_VIDEO_ID (the id from a youtube.com/watch?v=<id>
+/* TODO: set NEXT_PUBLIC_YOUTUBE_VIDEO_ID (the id from a youtube.com/watch?v=<id>
    URL) to play the film here: full width, muted, looping on load. Until then
    this renders a plain holder in its place. */
 const YOUTUBE_ID = process.env.NEXT_PUBLIC_YOUTUBE_VIDEO_ID;

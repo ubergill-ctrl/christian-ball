@@ -22,7 +22,7 @@ export default function Home() {
       <Hero onOpenRsvp={openRsvp} />
       <FilmFeature />
 
-      {/* Why we hold it — a plain paragraph, not a mission statement. */}
+      {/* Why we hold it: a plain paragraph, not a mission statement. */}
       <section id="about" className="section">
         <div className="container">
           <div className="sec-head">
@@ -34,7 +34,7 @@ export default function Home() {
             <div className="stack">
               <p>
                 The evening began as a handful of Orthodox parishes deciding that
-                their young people ought to have a proper night out together &mdash;
+                their young people ought to have a proper night out together:
                 dinner, a live band, and dancing that does not require a partner
                 you already know.
               </p>

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
 
 /* ==========================================================================
-   SAINT GABRIEL'S ORTHODOX YOUTH CEILIDH — "English Recusant"
+   SAINT GABRIEL'S ORTHODOX YOUTH CEILIDH: "English Recusant"
    Ink on oyster paper. Claret carries every action. Gilt is a hairline only.
    Deliberately single-theme: this is a printed invitation, not an app.
    ========================================================================== */
@@ -22,12 +22,12 @@
   --ink-2:        #544C42;
   --ink-3:        #7C7365;
 
-  /* Accent — claret does all the work */
+  /* Accent: claret does all the work */
   --claret:       #6B1F2A;
   --claret-deep:  #571620;
   --claret-wash:  rgba(107, 31, 42, 0.06);
 
-  /* Gilt — flat matte ochre. Hairlines and markers only. Never a gradient. */
+  /* Gilt: flat matte ochre. Hairlines and markers only. Never a gradient. */
   --gilt:         #A8843C;
   --gilt-soft:    rgba(168, 132, 60, 0.45);
 
@@ -136,7 +136,7 @@ section[id] { scroll-margin-top: 96px; }
 
 /* Every segment breaks on the same seam: a hairline rule with a gilt lozenge
    at its centre, in the manner of a printer's dinkus between chapters. The
-   mark reuses the gilt tick already used in ordered lists — no new device. */
+   mark reuses the gilt tick already used in ordered lists; no new device. */
 .section {
   padding-block: clamp(3.5rem, 8vw, 6.5rem);
   position: relative;
@@ -154,7 +154,7 @@ section[id] { scroll-margin-top: 96px; }
 }
 .section--tint { background: var(--vellum-warm); }
 
-/* Section heading: label, title, standfirst — ruled off from the content. */
+/* Section heading: label, title, standfirst, ruled off from the content. */
 .sec-head {
   display: grid;
   gap: 0.55rem;
@@ -202,7 +202,7 @@ section[id] { scroll-margin-top: 96px; }
 .btn--block { width: 100%; }
 .btn--small { padding: 0.7rem 1.25rem; font-size: 0.74rem; }
 
-/* Quiet text button — for secondary, low-commitment actions. */
+/* Quiet text button: for secondary, low-commitment actions. */
 .btn-text {
   background: none;
   border: 0;
@@ -420,7 +420,7 @@ section[id] { scroll-margin-top: 96px; }
 }
 
 /* ------------------------------------------------------------------- Hero */
-/* Centred, in the manner of an engraved invitation. Sized to its content —
+/* Centred, in the manner of an engraved invitation. Sized to its content,
    never 100vh, so the invitation is whole in the first frame. */
 
 .hero {
@@ -504,6 +504,10 @@ section[id] { scroll-margin-top: 96px; }
   font-variant-numeric: tabular-nums;
 }
 .hero-meta b { font-weight: 500; color: var(--ink); }
+
+/* The date is the one fact every guest needs first; it carries the claret
+   the rest of the bar reserves for action. */
+.hero-meta__date b { color: var(--claret); font-weight: 600; }
 
 .hero .row { justify-content: center; }
 

@@ -11,7 +11,7 @@ const order = [
   {
     time: '7.00',
     title: 'Grace and dinner',
-    note: 'Grace said, followed by a relaxed two courses at table &mdash; chef’s choice.',
+    note: 'Grace said, followed by a relaxed two courses at table: chef’s choice.',
   },
   {
     time: '8.15',

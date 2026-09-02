@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-/* TODO — replace the placeholder Stripe payment links in .env before launch. */
+/* TODO: replace the placeholder Stripe payment links in .env before launch. */
 const tiers = [
   {
     name: 'One at table',
@@ -101,7 +101,7 @@ export default function TicketBooking({ onOpenRsvp }: { onOpenRsvp: () => void }
 
         <p className="small quiet" style={{ marginTop: '2.5rem' }}>
           Payment is handled by Stripe; we never see your card details.
-          If the price is the thing standing in your way, write to Fr Paul &mdash;
+          If the price is the thing standing in your way, write to Fr Paul;
           a number of places are held back each year for exactly that reason.
         </p>
       </div>

@@ -30,7 +30,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
 
   if (!isOpen) return null;
 
-  /* TODO — this form does not send anywhere yet. Wire it to a Vercel route
+  /* TODO: this form does not send anywhere yet. Wire it to a Vercel route
      handler, Formspree, or Fr Paul's inbox before launch. */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,7 +59,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
             <hr className="gilt-rule" />
             <p className="muted">
               Thank you, {form.name || 'friend'}. Someone will write back to{' '}
-              {form.email || 'you'} within a few days &mdash; sooner if you have asked
+              {form.email || 'you'} within a few days, sooner if you have asked
               about a table.
             </p>
             <button onClick={close} className="btn btn--fill btn--block" style={{ marginTop: '0.5rem' }}>
