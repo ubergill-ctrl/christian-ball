@@ -383,7 +383,7 @@ section[id] { scroll-margin-top: 96px; }
   border-bottom: 1px solid transparent;
 }
 .nav-links a:hover { color: var(--claret); border-bottom-color: var(--gilt); }
-.nav-links a.btn:hover { border-bottom-color: var(--claret); }
+.nav-links a.btn, .nav-links a.btn:hover { border-bottom-color: var(--claret); }
 
 .nav-toggle {
   background: none;
