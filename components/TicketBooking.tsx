@@ -38,7 +38,7 @@ const tiers = [
     includes: [
       'A table of eight, named as you wish',
       'Your parish or company named in the programme',
-      'A word with Fr Paul before dinner, if you would like one',
+      'A word with Father Paul before dinner, if you would like one',
     ],
     link: process.env.NEXT_PUBLIC_STRIPE_VIP_LINK,
     lead: false,
@@ -101,7 +101,7 @@ export default function TicketBooking({ onOpenRsvp }: { onOpenRsvp: () => void }
 
         <p className="small quiet" style={{ marginTop: '2.5rem' }}>
           Payment is handled by Stripe; we never see your card details.
-          If the price is the thing standing in your way, write to Fr Paul;
+          If the price is the thing standing in your way, write to Father Paul;
           a number of places are held back each year for exactly that reason.
         </p>
       </div>

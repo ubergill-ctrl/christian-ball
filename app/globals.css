@@ -228,6 +228,11 @@ section[id] { scroll-margin-top: 96px; }
 }
 .panel--lead { border-top: 2px solid var(--claret); }
 
+/* Stretches with its grid row; its own foot stays pinned to the bottom so it
+   reads level with whatever sits beside it. */
+.venue-card { display: flex; flex-direction: column; }
+.venue-card .btn { margin-top: auto; }
+
 /* --------------------------------------------------- Order-of-service list */
 
 .ord { border-top: 1px solid var(--rule); }
@@ -338,7 +343,10 @@ section[id] { scroll-margin-top: 96px; }
   z-index: 50;
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: background-color 0.25s ease, border-color 0.25s ease;
+  -webkit-backdrop-filter: saturate(1.1) blur(0px);
+  backdrop-filter: saturate(1.1) blur(0px);
+  transition: background-color 0.4s ease, border-color 0.4s ease,
+    -webkit-backdrop-filter 0.4s ease, backdrop-filter 0.4s ease;
 }
 .site-head[data-scrolled="true"] {
   background: rgba(242, 237, 227, 0.94);

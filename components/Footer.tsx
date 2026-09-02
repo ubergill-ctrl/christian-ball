@@ -17,7 +17,7 @@ export default function Footer() {
             <hr className="gilt-rule" style={{ margin: '1rem 0' }} />
             <p className="small muted">
               An evening of dinner, music and dancing for Orthodox young people,
-              held at Hillbark. Organised by Fr Paul; no one is paid out of the
+              held at Hillbark. Organised by Father Paul; no one is paid out of the
               ticket price.
             </p>
           </div>
@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4>Fr Paul</h4>
+            <h4>Father Paul</h4>
             <ul>
               <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
               {PHONE ? <li><span className="small muted">{PHONE}</span></li> : null}

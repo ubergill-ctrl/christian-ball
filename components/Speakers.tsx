@@ -4,7 +4,7 @@ import React from 'react';
 
 const speaker = {
   initial: 'P',
-  name: 'Fr Paul',
+  name: 'Father Paul',
   role: 'A short address, after dinner',
   note: 'Ten minutes, no longer, before the tables are cleared for dancing.',
 };

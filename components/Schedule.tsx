@@ -16,7 +16,7 @@ const order = [
   {
     time: '8.15',
     title: 'A short address',
-    note: 'A few words from Fr Paul. Ten minutes, no longer.',
+    note: 'A few words from Father Paul. Ten minutes, no longer.',
   },
   {
     time: '8.45',

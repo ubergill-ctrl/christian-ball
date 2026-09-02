@@ -2,10 +2,15 @@
 
 import React from 'react';
 
-/* TODO: set NEXT_PUBLIC_YOUTUBE_VIDEO_ID (the id from a youtube.com/watch?v=<id>
-   URL) to play the film here: full width, muted, looping on load. Until then
-   this renders a plain holder in its place. */
-const YOUTUBE_ID = process.env.NEXT_PUBLIC_YOUTUBE_VIDEO_ID;
+/* Set NEXT_PUBLIC_YOUTUBE_VIDEO_ID to play the film here: full width, muted,
+   looping on load. Accepts a bare video id or a full youtube.com/youtu.be
+   URL; until it is set this renders a plain holder in its place. */
+function extractVideoId(value: string | undefined): string | undefined {
+  if (!value) return undefined;
+  const match = value.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/);
+  return match ? match[1] : value;
+}
+const YOUTUBE_ID = extractVideoId(process.env.NEXT_PUBLIC_YOUTUBE_VIDEO_ID);
 
 export default function FilmFeature() {
   return (

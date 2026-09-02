@@ -11,11 +11,11 @@ export default function VenueGuide() {
       <div className="container">
         <div className="sec-head">
           <span className="label">Getting there</span>
-          <h2>The room, and how to reach it</h2>
+          <h2>The venue, and how to reach it</h2>
         </div>
 
-        <div className="grid-2" style={{ alignItems: 'start' }}>
-          <div className="panel panel--lead">
+        <div className="grid-2">
+          <div className="panel panel--lead venue-card">
             <span className="label label--quiet">The venue</span>
             <h3 style={{ margin: '0.5rem 0 0.35rem' }}>{VENUE}</h3>
             <p className="small" style={{ color: 'var(--gilt)', marginBottom: '1rem' }}>
