@@ -1,284 +1,151 @@
 'use client';
 
-import React, { useState } from 'react';
-import { X, CheckCircle2, Sparkles, Send } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import React, { useEffect, useState } from 'react';
+import { X } from 'lucide-react';
 
 interface RsvpModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+const empty = {
+  name: '',
+  email: '',
+  phone: '',
+  guests: '1',
+  parish: '',
+  notes: '',
+};
+
 export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    guestsCount: '1',
-    dietaryRestrictions: '',
-    churchAffiliation: '',
-    notes: '',
-  });
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState(empty);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
+  /* TODO — this form does not send anywhere yet. Wire it to a Vercel route
+     handler, Formspree, or the committee's inbox before launch. */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-
-    try {
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#d4af37', '#ffffff', '#b8860b'],
-      });
-    } catch {
-      // ignore
-    }
+    setSent(true);
   };
 
+  const close = () => { setSent(false); setForm(empty); onClose(); };
+
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(5, 8, 17, 0.85)',
-      backdropFilter: 'blur(12px)',
-      zIndex: 100,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '1.5rem',
-    }}>
-      <div
-        className="glass-panel"
-        style={{
-          width: '100%',
-          maxWidth: '560px',
-          maxHeight: '90vh',
-          overflowY: 'auto',
-          padding: '2.5rem 2rem',
-          position: 'relative',
-          background: 'rgba(11, 17, 34, 0.96)',
-          border: '1px solid var(--border-gold)',
-        }}
-      >
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          style={{
-            position: 'absolute',
-            top: '20px',
-            right: '20px',
-            background: 'transparent',
-            border: 'none',
-            color: 'var(--text-muted)',
-            cursor: 'pointer',
-            padding: '0.4rem',
-          }}
-          aria-label="Close Modal"
-        >
-          <X size={22} />
+    <div
+      className="modal-veil"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Write to the committee"
+      onClick={(e) => { if (e.target === e.currentTarget) close(); }}
+    >
+      <div className="modal">
+        <button className="modal-close" onClick={close} aria-label="Close">
+          <X size={20} strokeWidth={1.5} />
         </button>
 
-        {submitted ? (
-          <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-            <div style={{
-              width: '70px',
-              height: '70px',
-              borderRadius: '50%',
-              background: 'rgba(212, 175, 55, 0.2)',
-              border: '2px solid var(--gold-400)',
-              margin: '0 auto 1.5rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-              <CheckCircle2 size={36} color="var(--gold-400)" />
-            </div>
-
-            <h3 className="font-serif" style={{ fontSize: '1.75rem', color: '#fff', marginBottom: '0.75rem' }}>
-              RSVP Received with Grace
-            </h3>
-
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '2rem' }}>
-              Thank you, <strong>{formData.fullName}</strong>. Our gala host team has received your registration details. We will send an official confirmation to <strong>{formData.email}</strong>.
+        {sent ? (
+          <div className="stack">
+            <span className="label">Thank you</span>
+            <h3>Your note has reached the committee</h3>
+            <hr className="gilt-rule" />
+            <p className="muted">
+              Thank you, {form.name || 'friend'}. Someone will write back to{' '}
+              {form.email || 'you'} within a few days &mdash; sooner if you have asked
+              about a table.
             </p>
-
-            <button
-              onClick={() => {
-                setSubmitted(false);
-                onClose();
-              }}
-              className="btn-gold"
-              style={{ width: '100%' }}
-            >
-              Close Window
+            <button onClick={close} className="btn btn--fill btn--block" style={{ marginTop: '0.5rem' }}>
+              Close
             </button>
           </div>
         ) : (
           <>
-            <div style={{ marginBottom: '1.75rem' }}>
-              <div className="pill-badge" style={{ marginBottom: '0.5rem' }}>
-                <Sparkles size={14} /> RSVP & Pre-Registration
-              </div>
-              <h3 className="font-serif" style={{ fontSize: '1.65rem', color: '#fff' }}>
-                Guest Registration & Inquiry
-              </h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>
-                Please provide your contact and dining preferences for the Christian Ball committee.
-              </p>
-            </div>
+            <span className="label">Write to the committee</span>
+            <h3 style={{ margin: '0.5rem 0 0.4rem' }}>Questions, invoices and dietary notes</h3>
+            <p className="small muted" style={{ marginBottom: '1.5rem' }}>
+              This is not a booking. It reaches the committee, who will write back.
+            </p>
 
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>
-                  Full Name *
-                </label>
+            <form onSubmit={handleSubmit} className="stack">
+              <div className="field">
+                <label htmlFor="rsvp-name">Your name</label>
                 <input
+                  id="rsvp-name"
                   required
                   type="text"
-                  placeholder="Lord / Lady / Pastor / Mr / Mrs..."
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem 1rem',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid var(--border-gold)',
-                    borderRadius: 'var(--radius-sm)',
-                    color: '#fff',
-                    outline: 'none',
-                    fontSize: '0.95rem',
-                  }}
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>
-                    Email Address *
-                  </label>
+              <div className="field-row">
+                <div className="field">
+                  <label htmlFor="rsvp-email">Email</label>
                   <input
+                    id="rsvp-email"
                     required
                     type="email"
-                    placeholder="you@domain.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid var(--border-gold)',
-                      borderRadius: 'var(--radius-sm)',
-                      color: '#fff',
-                      outline: 'none',
-                      fontSize: '0.95rem',
-                    }}
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
                   />
                 </div>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>
-                    Phone Number
-                  </label>
+                <div className="field">
+                  <label htmlFor="rsvp-phone">Telephone (optional)</label>
                   <input
+                    id="rsvp-phone"
                     type="tel"
-                    placeholder="+44 7000 000000"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid var(--border-gold)',
-                      borderRadius: 'var(--radius-sm)',
-                      color: '#fff',
-                      outline: 'none',
-                      fontSize: '0.95rem',
-                    }}
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   />
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>
-                    Number of Attendees
-                  </label>
+              <div className="field-row">
+                <div className="field">
+                  <label htmlFor="rsvp-guests">How many of you</label>
                   <select
-                    value={formData.guestsCount}
-                    onChange={(e) => setFormData({ ...formData, guestsCount: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      background: '#0e162b',
-                      border: '1px solid var(--border-gold)',
-                      borderRadius: 'var(--radius-sm)',
-                      color: '#fff',
-                      outline: 'none',
-                      fontSize: '0.95rem',
-                    }}
+                    id="rsvp-guests"
+                    value={form.guests}
+                    onChange={(e) => setForm({ ...form, guests: e.target.value })}
                   >
-                    <option value="1">1 Guest</option>
-                    <option value="2">2 Guests (Couple)</option>
-                    <option value="4">4 Guests</option>
-                    <option value="8">8 Guests (Full Table)</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="4">Four</option>
+                    <option value="8">A table of eight</option>
                   </select>
                 </div>
-
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>
-                    Church / Organization
-                  </label>
+                <div className="field">
+                  <label htmlFor="rsvp-parish">Parish or organisation (optional)</label>
                   <input
+                    id="rsvp-parish"
                     type="text"
-                    placeholder="Home fellowship..."
-                    value={formData.churchAffiliation}
-                    onChange={(e) => setFormData({ ...formData, churchAffiliation: e.target.value })}
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid var(--border-gold)',
-                      borderRadius: 'var(--radius-sm)',
-                      color: '#fff',
-                      outline: 'none',
-                      fontSize: '0.95rem',
-                    }}
+                    value={form.parish}
+                    onChange={(e) => setForm({ ...form, parish: e.target.value })}
                   />
                 </div>
               </div>
 
-              <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>
-                  Dietary Requirements & Notes
-                </label>
+              <div className="field">
+                <label htmlFor="rsvp-notes">Anything we should know</label>
                 <textarea
+                  id="rsvp-notes"
                   rows={3}
-                  placeholder="Vegetarian, Halal, Gluten-Free, Nut Allergies, or Seating requests..."
-                  value={formData.dietaryRestrictions}
-                  onChange={(e) => setFormData({ ...formData, dietaryRestrictions: e.target.value })}
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem 1rem',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid var(--border-gold)',
-                    borderRadius: 'var(--radius-sm)',
-                    color: '#fff',
-                    outline: 'none',
-                    fontSize: '0.95rem',
-                    resize: 'none',
-                  }}
+                  placeholder="Dietary requirements, access, who you would like to sit with"
+                  value={form.notes}
+                  onChange={(e) => setForm({ ...form, notes: e.target.value })}
                 />
               </div>
 
-              <button type="submit" className="btn-gold" style={{ width: '100%', marginTop: '0.75rem' }}>
-                <Send size={16} />
-                Submit RSVP & Inquiry
+              <button type="submit" className="btn btn--fill btn--block" style={{ marginTop: '0.5rem' }}>
+                Send to the committee
               </button>
             </form>
           </>

@@ -2,26 +2,23 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'The Christian Ball 2026 | An Evening of Elegance & Fellowship',
-  description: 'Join us for a grand black-tie evening celebrating faith, fellowship, and charity. Live orchestra, gourmet dining, keynote addresses, and ballroom dancing.',
-  keywords: ['Christian Ball', 'Gala', 'Christian Gala', 'Charity Ball', 'Black Tie', 'Faith Event', 'Banquet'],
+  title: 'The Christian Ball 2026',
+  description:
+    'An evening of dinner, music and dancing in London on Saturday 21 November 2026, held in aid of a nominated charity. Guests of every English tradition welcome.',
+  keywords: ['Christian Ball', 'charity ball London', 'Catholic', 'Orthodox', 'black tie', 'November 2026'],
   openGraph: {
-    title: 'The Christian Ball 2026 | An Evening of Elegance & Fellowship',
-    description: 'An unforgettable evening celebrating faith, fellowship, and charity in London.',
+    title: 'The Christian Ball 2026',
+    description:
+      'Dinner, music and dancing in London on Saturday 21 November 2026, in aid of a nominated charity.',
     type: 'website',
+    locale: 'en_GB',
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
-        {children}
-      </body>
+    <html lang="en-GB">
+      <body>{children}</body>
     </html>
   );
 }

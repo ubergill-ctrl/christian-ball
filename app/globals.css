@@ -1,194 +1,531 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+
+/* ==========================================================================
+   THE CHRISTIAN BALL — "English Recusant"
+   Ink on oyster paper. Claret carries every action. Gilt is a hairline only.
+   Deliberately single-theme: this is a printed invitation, not an app.
+   ========================================================================== */
 
 :root {
-  --font-serif: 'Cinzel', serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color-scheme: light;
 
-  /* Luxury Color System */
-  --bg-primary: #050811;
-  --bg-secondary: #0b1122;
-  --bg-surface: rgba(18, 26, 47, 0.7);
-  --bg-surface-hover: rgba(28, 40, 70, 0.85);
-  
-  --gold-300: #fef08a;
-  --gold-400: #facc15;
-  --gold-500: #d4af37;
-  --gold-600: #b8860b;
-  --gold-gradient: linear-gradient(135deg, #fff3b0 0%, #d4af37 50%, #aa7c11 100%);
-  --gold-glow: rgba(212, 175, 55, 0.25);
-  
-  --text-primary: #ffffff;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  
-  --border-gold: rgba(212, 175, 55, 0.3);
-  --border-subtle: rgba(255, 255, 255, 0.1);
+  --font-display: 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  --font-body: 'Spectral', Georgia, 'Times New Roman', serif;
 
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-full: 9999px;
+  /* Ground */
+  --paper:        #F2EDE3;
+  --vellum:       #FAF7F0;
+  --vellum-warm:  #F7F1E6;
+
+  /* Ink */
+  --ink:          #1B1714;
+  --ink-2:        #544C42;
+  --ink-3:        #7C7365;
+
+  /* Accent — claret does all the work */
+  --claret:       #6B1F2A;
+  --claret-deep:  #571620;
+  --claret-wash:  rgba(107, 31, 42, 0.06);
+
+  /* Gilt — flat matte ochre. Hairlines and markers only. Never a gradient. */
+  --gilt:         #A8843C;
+  --gilt-soft:    rgba(168, 132, 60, 0.45);
+
+  /* Rules */
+  --rule:         #CBBFA9;
+  --rule-soft:    #E2DACA;
+
+  /* Type scale */
+  --fs-display: clamp(2.6rem, 7vw, 4.6rem);
+  --fs-h2:      clamp(1.85rem, 4vw, 2.7rem);
+  --fs-h3:      1.45rem;
+  --fs-h4:      1.2rem;
+  --fs-body:    1.02rem;
+  --fs-small:   0.92rem;
+  --fs-label:   0.72rem;
+
+  --measure: 62ch;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
 
-html {
-  scroll-behavior: smooth;
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--fs-body);
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  line-height: 1.6;
-  background-image: 
-    radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 85% 65%, rgba(45, 75, 140, 0.15) 0%, transparent 45%),
-    radial-gradient(circle at 50% 90%, rgba(212, 175, 55, 0.06) 0%, transparent 50%);
-  background-attachment: fixed;
-  min-height: 100vh;
 }
 
-h1, h2, h3, h4, .font-serif {
-  font-family: var(--font-serif);
-  letter-spacing: 0.03em;
+/* --------------------------------------------------------------- Typography */
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: 0.005em;
+  text-wrap: balance;
+  color: var(--ink);
 }
 
-/* Glassmorphism Card Utility */
-.glass-panel {
-  background: var(--bg-surface);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+h1 { font-weight: 300; font-size: var(--fs-display); line-height: 1.06; }
+h2 { font-weight: 300; font-size: var(--fs-h2); }
+h3 { font-weight: 500; font-size: var(--fs-h3); }
+h4 { font-weight: 500; font-size: var(--fs-h4); }
+
+p { max-width: var(--measure); }
+
+.lede {
+  font-size: 1.08rem;
+  color: var(--ink-2);
+  line-height: 1.72;
 }
 
-.glass-panel:hover {
-  border-color: rgba(212, 175, 55, 0.55);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 20px var(--gold-glow);
-}
+.muted   { color: var(--ink-2); }
+.quiet   { color: var(--ink-3); }
+.small   { font-size: var(--fs-small); }
 
-.gold-gradient-text {
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-/* Buttons */
-.btn-gold {
-  background: var(--gold-gradient);
-  color: #050811;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 0.85rem 1.75rem;
-  border-radius: var(--radius-full);
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-}
-
-.btn-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.55);
-  filter: brightness(1.08);
-}
-
-.btn-gold:active {
-  transform: translateY(0);
-}
-
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-  border: 1px solid var(--border-gold);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.85rem 1.75rem;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
-}
-
-.btn-secondary:hover {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: var(--gold-400);
-  transform: translateY(-2px);
-}
-
-/* Container & Layout */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.section-spacing {
-  padding: 6rem 0;
-}
-
-@media (max-width: 768px) {
-  .section-spacing {
-    padding: 4rem 0;
-  }
-}
-
-/* Badge */
-.pill-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  color: var(--gold-300);
-  padding: 0.4rem 1.2rem;
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 600;
+/* Engraved small-caps label. The only "badge" this site has. */
+.label {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-label);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: var(--claret);
+}
+.label--gilt { color: var(--gilt); }
+.label--quiet { color: var(--ink-3); }
+
+a { color: var(--claret); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { color: var(--claret-deep); }
+
+:focus-visible {
+  outline: 2px solid var(--claret);
+  outline-offset: 3px;
 }
 
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+/* ------------------------------------------------------------------ Layout */
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-inline: var(--gutter);
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.narrow { max-width: var(--measure); }
+.column { max-width: 48rem; }
+
+.section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.section--tint { background: var(--vellum-warm); }
+.section--ruled { border-top: 1px solid var(--rule); }
+
+/* Section heading: label, title, standfirst — ruled off from the content. */
+.sec-head {
+  display: grid;
+  gap: 0.55rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.sec-head p { color: var(--ink-2); }
+
+/* A short gilt hairline used as a caesura. Never decoration for its own sake. */
+.gilt-rule {
+  width: 8rem;
+  height: 1px;
+  background: var(--gilt);
+  opacity: 0.6;
+  border: 0;
+}
+.gilt-rule--center { margin-inline: auto; }
+
+/* ----------------------------------------------------------------- Buttons */
+
+.btn {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.95rem 1.7rem;
+  border: 1px solid var(--claret);
+  border-radius: 1px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  background: transparent;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.btn--fill { background: var(--claret); color: var(--vellum); }
+.btn--fill:hover { background: var(--claret-deep); color: var(--vellum); }
+.btn--line { color: var(--claret); }
+.btn--line:hover { background: var(--claret-wash); color: var(--claret-deep); }
+.btn--block { width: 100%; }
+.btn--small { padding: 0.7rem 1.25rem; font-size: 0.74rem; }
+
+/* Quiet text button — for secondary, low-commitment actions. */
+.btn-text {
+  background: none;
+  border: 0;
+  padding: 0.4rem 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-color: var(--rule);
+}
+.btn-text:hover { color: var(--claret); text-decoration-color: var(--claret); }
+
+/* ------------------------------------------------------------------ Panels */
+/* Used sparingly. Separation normally comes from rules and space, not boxes. */
+
+.panel {
+  background: var(--vellum);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+.panel--lead { border-top: 2px solid var(--claret); }
+
+/* --------------------------------------------------- Order-of-service list */
+
+.ord { border-top: 1px solid var(--rule); }
+.ord-item {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 0.25rem 1.5rem;
+  padding-block: 1.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+.ord-item time {
+  font-size: var(--fs-small);
+  color: var(--gilt);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  padding-top: 0.3rem;
+}
+.ord-item p { color: var(--ink-2); font-size: var(--fs-small); }
+@media (max-width: 520px) {
+  .ord-item { grid-template-columns: minmax(0, 1fr); }
+  .ord-item time { padding-top: 0; }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* --------------------------------------------------------- Gilt-marked list */
+
+.marked { list-style: none; display: grid; gap: 0.65rem; }
+.marked li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--ink-2);
+  font-size: var(--fs-small);
 }
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+.marked li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 0.45rem;
+  height: 1px;
+  background: var(--gilt);
 }
-::-webkit-scrollbar-thumb {
-  background: rgba(212, 175, 55, 0.4);
-  border-radius: 4px;
+
+/* ------------------------------------------------------------------- Forms */
+
+.field { display: grid; gap: 0.4rem; }
+.field > label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
 }
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 175, 55, 0.7);
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--fs-small);
+  color: var(--ink);
+  background: var(--vellum);
+  border: 1px solid var(--rule);
+  border-radius: 1px;
+  padding: 0.72rem 0.85rem;
+  transition: border-color 0.18s ease;
+}
+.field textarea { resize: vertical; min-height: 5.5rem; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--claret);
+  outline: 1px solid var(--claret);
+  outline-offset: -2px;
+}
+.field input::placeholder,
+.field textarea::placeholder { color: var(--ink-3); opacity: 1; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+/* ------------------------------------------------------------------- Grids */
+
+.grid-2 { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+.stack   { display: grid; gap: 1rem; }
+.stack-2 { display: grid; gap: 2rem; }
+.row     { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+/* --------------------------------------------------------------- Scrollbar */
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { background: var(--rule); }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-3); }
+
+::selection { background: var(--claret); color: var(--vellum); }
+
+/* ==========================================================================
+   Component-specific: masthead and hero
+   ========================================================================== */
+
+.site-head {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+.site-head[data-scrolled="true"] {
+  background: rgba(242, 237, 227, 0.94);
+  backdrop-filter: saturate(1.1) blur(6px);
+  -webkit-backdrop-filter: saturate(1.1) blur(6px);
+  border-bottom-color: var(--rule);
+}
+
+.site-head .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 76px;
+}
+
+.wordmark { text-decoration: none; display: grid; gap: 0.1rem; }
+.wordmark .name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.28rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1;
+}
+.wordmark .year {
+  font-size: 0.63rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  line-height: 1;
+}
+
+.nav-links { display: none; align-items: center; gap: 1.75rem; }
+.nav-links a {
+  font-size: 0.86rem;
+  color: var(--ink-2);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  padding-block: 0.2rem;
+  border-bottom: 1px solid transparent;
+}
+.nav-links a:hover { color: var(--claret); border-bottom-color: var(--gilt); }
+.nav-links a.btn:hover { border-bottom-color: var(--claret); }
+
+.nav-toggle {
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 1px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: inline-flex;
+  line-height: 0;
+}
+.nav-toggle:hover { border-color: var(--claret); color: var(--claret); }
+
+.nav-drawer {
+  background: var(--vellum);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.25rem var(--gutter) 1.75rem;
+  display: grid;
+  gap: 0.1rem;
+}
+.nav-drawer a {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--ink);
+  text-decoration: none;
+  padding-block: 0.7rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.nav-drawer a:last-child { border-bottom: 0; margin-top: 0.9rem; }
+
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .nav-toggle { display: none; }
+}
+
+/* ------------------------------------------------------------------- Hero */
+/* Centred, in the manner of an engraved invitation. Sized to its content —
+   never 100vh, so the invitation is whole in the first frame. */
+
+.hero {
+  padding-top: clamp(7rem, 14vw, 10rem);
+  padding-bottom: clamp(3.5rem, 7vw, 5.5rem);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+}
+.hero h1 { max-width: 20ch; }
+.hero h1 .yr {
+  display: block;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--claret);
+  font-size: 0.62em;
+  margin-top: 0.15em;
+  letter-spacing: 0.06em;
+}
+.hero .invitation { font-size: 1.1rem; color: var(--ink-2); line-height: 1.75; }
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 2rem;
+  padding-block: 1.15rem;
+  border-block: 1px solid var(--rule);
+  width: 100%;
+  max-width: 46rem;
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.hero-meta b { font-weight: 500; color: var(--ink); }
+
+.hero .row { justify-content: center; }
+
+/* ------------------------------------------------------- Guests / committee */
+
+.guest { display: grid; gap: 0.5rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); }
+.guest .initial {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: var(--gilt);
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------------- Tickets */
+
+.tier { display: flex; flex-direction: column; }
+.tier > .label:first-child { min-height: 2.4em; }
+.tier .price {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2.9rem;
+  line-height: 1;
+  color: var(--claret);
+  font-variant-numeric: tabular-nums;
+}
+.tier .marked { margin-block: 1.35rem; padding-top: 1.35rem; border-top: 1px solid var(--rule); }
+.tier .foot { margin-top: auto; display: grid; gap: 0.6rem; justify-items: center; }
+
+/* -------------------------------------------------------------------- Modal */
+
+.modal-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(27, 23, 20, 0.55);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(1rem, 5vh, 4rem) 1.25rem;
+  overflow-y: auto;
+}
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--claret);
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: 0;
+  color: var(--ink-3);
+  cursor: pointer;
+  padding: 0.35rem;
+  line-height: 0;
+}
+.modal-close:hover { color: var(--claret); }
+
+/* ------------------------------------------------------------------ Footer */
+
+.site-foot {
+  background: var(--vellum-warm);
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(3rem, 6vw, 4.5rem) 2rem;
+}
+.foot-cols {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+.foot-cols h4 { margin-bottom: 1rem; }
+.foot-cols ul { list-style: none; display: grid; gap: 0.6rem; }
+.foot-cols a { color: var(--ink-2); text-decoration: none; font-size: var(--fs-small); }
+.foot-cols a:hover { color: var(--claret); text-decoration: underline; }
+.foot-bar {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--ink-3);
 }

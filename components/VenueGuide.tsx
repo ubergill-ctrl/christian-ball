@@ -1,142 +1,64 @@
 'use client';
 
 import React from 'react';
-import { MapPin, Navigation, Car, Train, Hotel } from 'lucide-react';
+
+/* TODO — confirm venue, address, nearest stations and any hotel arrangement. */
+const VENUE = process.env.NEXT_PUBLIC_EVENT_VENUE || 'Venue to be confirmed';
 
 export default function VenueGuide() {
   return (
-    <section id="venue" className="section-spacing">
+    <section id="venue" className="section">
       <div className="container">
-        
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <div className="pill-badge" style={{ marginBottom: '1rem' }}>
-            <MapPin size={16} />
-            The Location
-          </div>
-          <h2 className="font-serif" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1rem' }}>
-            The Venue & <span className="gold-gradient-text">Directions</span>
-          </h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '620px', margin: '0 auto' }}>
-            A historic, magnificent setting designed to provide an unforgettable atmosphere of grandeur and hospitality.
-          </p>
+        <div className="sec-head">
+          <span className="label">Getting there</span>
+          <h2>The room, and how to reach it</h2>
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '2.5rem',
-          alignItems: 'stretch',
-        }}>
-          {/* Venue Card */}
-          <div className="glass-panel" style={{ padding: '2.5rem 2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <div>
-              <div style={{
-                display: 'inline-flex',
-                padding: '0.35rem 0.9rem',
-                borderRadius: 'var(--radius-full)',
-                background: 'rgba(212, 175, 55, 0.15)',
-                color: 'var(--gold-300)',
-                fontSize: '0.8rem',
-                fontWeight: 600,
-                marginBottom: '1rem'
-              }}>
-                Historic Ballroom
-              </div>
-
-              <h3 className="font-serif" style={{ fontSize: '1.75rem', color: '#fff', marginBottom: '0.5rem' }}>
-                The Grand Monarch Ballroom
-              </h3>
-              
-              <p style={{ color: 'var(--gold-400)', fontSize: '1rem', marginBottom: '1.25rem' }}>
-                Westminster Hall Estate, London SW1P 3JA
-              </p>
-
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                Featuring soaring 30-foot gold-leaf ceilings, crystal chandeliers, a marble dance floor, and state-of-the-art acoustic sound engineering for our live symphony and speakers.
-              </p>
-            </div>
-
+        <div className="grid-2" style={{ alignItems: 'start' }}>
+          <div className="panel panel--lead">
+            <span className="label label--quiet">The venue</span>
+            <h3 style={{ margin: '0.5rem 0 0.35rem' }}>{VENUE}</h3>
+            <p className="small" style={{ color: 'var(--gilt)', marginBottom: '1rem' }}>
+              Address to be confirmed &middot; London
+            </p>
+            <p className="small muted" style={{ marginBottom: '1.5rem' }}>
+              A sprung floor, a gallery for the reception, and a room that holds a
+              hundred and eighty at table without anyone shouting.
+            </p>
             <a
-              href="https://maps.google.com/?q=Westminster+Hall+London"
+              className="btn btn--line btn--block"
+              href="https://www.google.com/maps"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary"
-              style={{ width: '100%', justifyContent: 'center' }}
             >
-              <Navigation size={18} />
-              Open in Google Maps
+              Open in maps
             </a>
           </div>
 
-          {/* Travel & Accommodation Tips */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            
-            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
-              <div style={{
-                width: '46px',
-                height: '46px',
-                borderRadius: '12px',
-                background: 'rgba(212, 175, 55, 0.15)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0
-              }}>
-                <Train size={22} color="var(--gold-400)" />
-              </div>
+          <div className="ord" style={{ borderTop: '1px solid var(--rule)' }}>
+            <div className="ord-item">
+              <time>Rail</time>
               <div>
-                <h4 className="font-serif" style={{ fontSize: '1.1rem', color: '#fff', marginBottom: '0.2rem' }}>Public Transit</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5 }}>
-                  5-minute walk from Westminster & St. James’s Park Underground stations (Jubilee, Circle & District lines).
-                </p>
+                <h4>By Underground</h4>
+                <p>Nearest stations to be confirmed. Five minutes on foot either way.</p>
               </div>
             </div>
-
-            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
-              <div style={{
-                width: '46px',
-                height: '46px',
-                borderRadius: '12px',
-                background: 'rgba(212, 175, 55, 0.15)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0
-              }}>
-                <Car size={22} color="var(--gold-400)" />
-              </div>
+            <div className="ord-item">
+              <time>Car</time>
               <div>
-                <h4 className="font-serif" style={{ fontSize: '1.1rem', color: '#fff', marginBottom: '0.2rem' }}>Valet & Parking</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5 }}>
-                  Complimentary valet parking available at the main entrance portico for all ticket holders.
-                </p>
+                <h4>Parking</h4>
+                <p>No parking at the venue. The nearest car park is a short walk; a taxi rank sits on the corner.</p>
               </div>
             </div>
-
-            <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', gap: '1.25rem', alignItems: 'center' }}>
-              <div style={{
-                width: '46px',
-                height: '46px',
-                borderRadius: '12px',
-                background: 'rgba(212, 175, 55, 0.15)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0
-              }}>
-                <Hotel size={22} color="var(--gold-400)" />
-              </div>
+            <div className="ord-item">
+              <time>Bed</time>
               <div>
-                <h4 className="font-serif" style={{ fontSize: '1.1rem', color: '#fff', marginBottom: '0.2rem' }}>Partner Hotels</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: 1.5 }}>
-                  Discounted room rates available at The Westminster Curio Hotel using code <strong style={{ color: 'var(--gold-300)' }}>XIANBALL26</strong>.
-                </p>
+                <h4>Staying over</h4>
+                <p>Two hotels within ten minutes hold a small block for guests. Details to follow with your confirmation.</p>
               </div>
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -10,59 +10,61 @@ import VenueGuide from '@/components/VenueGuide';
 import TicketBooking from '@/components/TicketBooking';
 import RsvpModal from '@/components/RsvpModal';
 import Footer from '@/components/Footer';
-import { Sparkles, Heart, Award } from 'lucide-react';
 
 export default function Home() {
   const [rsvpOpen, setRsvpOpen] = useState(false);
+  const openRsvp = () => setRsvpOpen(true);
 
   return (
-    <main style={{ minHeight: '100vh', position: 'relative' }}>
-      <Navbar onOpenRsvp={() => setRsvpOpen(true)} />
-      
-      <Hero onOpenRsvp={() => setRsvpOpen(true)} />
+    <main>
+      <Navbar onOpenRsvp={openRsvp} />
+      <Hero onOpenRsvp={openRsvp} />
 
-      {/* About / Vision Highlight Banner */}
-      <section id="about" className="section-spacing" style={{ position: 'relative' }}>
+      {/* Why we hold it — a plain paragraph, not a mission statement. */}
+      <section id="about" className="section section--ruled">
         <div className="container">
-          <div className="glass-panel" style={{
-            padding: '3.5rem 2.5rem',
-            background: 'linear-gradient(135deg, rgba(14, 22, 42, 0.95) 0%, rgba(7, 12, 26, 0.98) 100%)',
-            border: '1px solid var(--border-gold)',
-            position: 'relative',
-            overflow: 'hidden',
-          }}>
-            <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
-              <div className="pill-badge" style={{ marginBottom: '1.25rem' }}>
-                <Sparkles size={16} /> Our Sacred Calling & Purpose
-              </div>
-              <h2 className="font-serif" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', marginBottom: '1.5rem', lineHeight: 1.3 }}>
-                A Celebration of Kingdom Unity & Excellence
-              </h2>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-                The Christian Ball was established to create a sanctuary of elevated refinement, honoring the beauty of holy matrimony, fellowship, and Christian leadership. In a world of noise, we gather in regal splendor to rejoice, break bread, and raise essential funds for vulnerable families and community youth programs.
-              </p>
+          <div className="sec-head">
+            <span className="label">Why we hold it</span>
+            <h2>A dinner, a band, and a collection</h2>
+          </div>
 
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-                gap: '1.5rem',
-                marginTop: '2.5rem',
-                textAlign: 'left',
-              }}>
-                <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(212,175,55,0.15)' }}>
-                  <Award size={24} color="var(--gold-400)" style={{ marginBottom: '0.5rem' }} />
-                  <h4 className="font-serif" style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '0.3rem' }}>Gourmet Feast</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Three-course fine dining curated by Master Chefs.</p>
+          <div className="grid-2" style={{ alignItems: 'start' }}>
+            <div className="stack">
+              <p>
+                The ball began as a handful of parishes deciding that the Saturday
+                before Advent ought to be spent at a table with people they liked,
+                and that if a hundred and eighty of us were going to have dinner
+                anyway, the surplus might as well go somewhere useful.
+              </p>
+              <p className="muted">
+                {/* TODO — replace with last year's real figure and charity. */}
+                Last year the evening raised a sum the committee published in full
+                the following week, as it does every year. Nobody on the committee
+                is paid, and the ticket price covers the room and the food before
+                it covers anything else.
+              </p>
+            </div>
+
+            <div className="ord">
+              <div className="ord-item">
+                <time>Dinner</time>
+                <div>
+                  <h4>Three courses, seated</h4>
+                  <p>Cooked properly, served at table, finished before the speeches.</p>
                 </div>
-                <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(212,175,55,0.15)' }}>
-                  <Sparkles size={24} color="var(--gold-400)" style={{ marginBottom: '0.5rem' }} />
-                  <h4 className="font-serif" style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '0.3rem' }}>Royal Waltz</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Live 12-piece chamber orchestra & ballroom floor.</p>
+              </div>
+              <div className="ord-item">
+                <time>Music</time>
+                <div>
+                  <h4>A band, and a caller</h4>
+                  <p>Waltz, polka and the Gay Gordons. You need not know the steps.</p>
                 </div>
-                <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(212,175,55,0.15)' }}>
-                  <Heart size={24} color="var(--gold-400)" style={{ marginBottom: '0.5rem' }} />
-                  <h4 className="font-serif" style={{ color: '#fff', fontSize: '1.1rem', marginBottom: '0.3rem' }}>Benevolent Giving</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>All net proceeds to underprivileged youth charities.</p>
+              </div>
+              <div className="ord-item">
+                <time>Appeal</time>
+                <div>
+                  <h4>Ten minutes, once</h4>
+                  <p>One appeal, after dinner. No auction, no raffle at every table.</p>
                 </div>
               </div>
             </div>
@@ -74,7 +76,7 @@ export default function Home() {
       <Speakers />
       <DressCode />
       <VenueGuide />
-      <TicketBooking onOpenRsvp={() => setRsvpOpen(true)} />
+      <TicketBooking onOpenRsvp={openRsvp} />
       <Footer />
 
       <RsvpModal isOpen={rsvpOpen} onClose={() => setRsvpOpen(false)} />
