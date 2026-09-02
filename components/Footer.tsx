@@ -27,7 +27,6 @@ export default function Footer() {
             <ul>
               <li><a href="#about">The evening</a></li>
               <li><a href="#order">Order of the evening</a></li>
-              <li><a href="#guests">Guests</a></li>
               <li><a href="#dress">Dress</a></li>
               <li><a href="#venue">Getting there</a></li>
               <li><a href="#places">Places at table</a></li>

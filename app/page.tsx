@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import FilmFeature from '@/components/FilmFeature';
 import Schedule from '@/components/Schedule';
-import Speakers from '@/components/Speakers';
+import Gallery from '@/components/Gallery';
 import DressCode from '@/components/DressCode';
 import VenueGuide from '@/components/VenueGuide';
 import TicketBooking from '@/components/TicketBooking';
@@ -73,7 +73,7 @@ export default function Home() {
       </section>
 
       <Schedule />
-      <Speakers />
+      <Gallery />
       <DressCode />
       <VenueGuide />
       <TicketBooking onOpenRsvp={openRsvp} />
