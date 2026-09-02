@@ -131,6 +131,9 @@ a:hover { color: var(--claret-deep); }
 .narrow { max-width: var(--measure); }
 .column { max-width: 48rem; }
 
+/* The masthead is fixed, so anchored sections must clear it on jump. */
+section[id] { scroll-margin-top: 96px; }
+
 .section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
 .section--tint { background: var(--vellum-warm); }
 .section--ruled { border-top: 1px solid var(--rule); }
