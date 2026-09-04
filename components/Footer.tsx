@@ -29,6 +29,7 @@ export default function Footer() {
               <li><a href="#order">Order of the evening</a></li>
               <li><a href="#dress">Dress</a></li>
               <li><a href="#venue">Getting there</a></li>
+              <li><a href="#stay">Accommodation</a></li>
               <li><a href="#places">Places at table</a></li>
             </ul>
           </div>

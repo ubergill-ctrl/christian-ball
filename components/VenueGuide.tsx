@@ -3,7 +3,6 @@
 import React from 'react';
 
 const VENUE = process.env.NEXT_PUBLIC_EVENT_VENUE || 'Hillbark Hotel & Spa';
-const VENUE_URL = 'https://hillbarkhotel.co.uk';
 
 export default function VenueGuide() {
   return (
@@ -55,8 +54,8 @@ export default function VenueGuide() {
               <div>
                 <h4>Staying over</h4>
                 <p>
-                  Hillbark is itself a hotel; rooms can be booked directly with them at{' '}
-                  <a href={VENUE_URL} target="_blank" rel="noopener noreferrer">hillbarkhotel.co.uk</a>.
+                  Hillbark is itself a hotel, and there are rooms nearby.{' '}
+                  <a href="#stay">Accommodation is set out below</a>.
                 </p>
               </div>
             </div>

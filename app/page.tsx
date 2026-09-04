@@ -8,6 +8,7 @@ import Schedule from '@/components/Schedule';
 import Gallery from '@/components/Gallery';
 import DressCode from '@/components/DressCode';
 import VenueGuide from '@/components/VenueGuide';
+import Accommodation from '@/components/Accommodation';
 import TicketBooking from '@/components/TicketBooking';
 import RsvpModal from '@/components/RsvpModal';
 import Footer from '@/components/Footer';
@@ -33,15 +34,21 @@ export default function Home() {
           <div className="grid-2" style={{ alignItems: 'start' }}>
             <div className="stack">
               <p>
-                The evening began as a handful of Orthodox parishes deciding that
-                their young people ought to have a proper night out together:
-                dinner, a live band, and dancing that does not require a partner
-                you already know.
+                This evening follows the Ascension Spring Ball, hosted at Strawberry
+                Hill in London, which filled its room and sent people home asking
+                when the next one would be. This is the next one, held in the north.
+              </p>
+              <p>
+                It is also an evening about what it means to be Orthodox in Britain.
+                British tradition, as we have inherited it, has been separated from
+                Orthodoxy for more than a thousand years, since the Norman invasion,
+                and the faith is only now returning to these isles.
               </p>
               <p className="muted">
-                It is deliberately laid-back: no dress code to fret over, no set
-                menu to agonise about, and a caller who will have you through a
-                Gay Gordons whether you have danced one before or not.
+                So the question the evening puts, without labouring it: how do we
+                merge the traditions already present in this land with the
+                re-emerging Orthodox faith? A ceilidh is a reasonable place to
+                begin asking.
               </p>
             </div>
 
@@ -63,8 +70,8 @@ export default function Home() {
               <div className="ord-item">
                 <time>Dress</time>
                 <div>
-                  <h4>Regional dress, or smart casual</h4>
-                  <p>A jacket is welcome. A black tie is not required.</p>
+                  <h4>Semi-formal, or national dress</h4>
+                  <p>Ties optional. National and traditional dress is always welcome.</p>
                 </div>
               </div>
             </div>
@@ -76,6 +83,7 @@ export default function Home() {
       <Gallery />
       <DressCode />
       <VenueGuide />
+      <Accommodation />
       <TicketBooking onOpenRsvp={openRsvp} />
       <Footer />
 

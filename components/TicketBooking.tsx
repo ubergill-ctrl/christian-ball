@@ -19,11 +19,11 @@ const tiers = [
   },
   {
     name: 'Two at table',
-    note: 'A pair, seated together',
+    note: 'A pair, at a discount',
     price: '£120',
-    per: 'for two guests, dinner included',
+    per: 'for two guests, £10 less than two single places',
     includes: [
-      'Everything above, for two',
+      'Everything above, for two, at a discounted rate',
       'Seated together, on a table of your choosing where possible',
       'A photograph, taken during the reception',
     ],
@@ -38,7 +38,7 @@ const tiers = [
     includes: [
       'A table of eight, named as you wish',
       'Your parish or company named in the programme',
-      'A word with Father Paul before dinner, if you would like one',
+      'A group photograph on the night: show the photographer your booking and they will gather you for a proper posed shot',
     ],
     link: process.env.NEXT_PUBLIC_STRIPE_VIP_LINK,
     lead: false,
@@ -101,7 +101,7 @@ export default function TicketBooking({ onOpenRsvp }: { onOpenRsvp: () => void }
 
         <p className="small quiet" style={{ marginTop: '2.5rem' }}>
           Payment is handled by Stripe; we never see your card details.
-          If the price is the thing standing in your way, write to Father Paul;
+          If the price is the thing standing in your way, do write to us;
           a number of places are held back each year for exactly that reason.
         </p>
       </div>

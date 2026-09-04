@@ -9,11 +9,11 @@ export default function DressCode() {
         <div className="column">
         <div className="sec-head">
           <span className="label">Dress</span>
-          <h2>Regional dress, or smart casual</h2>
+          <h2>Semi-formal</h2>
           <p>
-            This is not a black-tie evening. Come as you would to a good parish
-            gathering: a jacket is welcome, national and regional dress more
-            welcome still, and nobody will be turned away over either.
+            Semi-formal, rather than black tie. Dress as you would for a good
+            parish celebration: smart, comfortable enough to dance in, and with
+            national or traditional dress warmly encouraged.
           </p>
         </div>
 
@@ -21,7 +21,8 @@ export default function DressCode() {
           <div>
             <h3 style={{ marginBottom: '1rem' }}>For men</h3>
             <ul className="marked">
-              <li>A jacket, or the regional dress of your own tradition.</li>
+              <li>Suit trousers or smart trousers, worn with a shirt.</li>
+              <li>Ties are optional, and not expected.</li>
               <li>Shoes you can dance a ceilidh in; the floor gets used.</li>
               <li>Clergy: cassock or clerical dress is entirely welcome.</li>
             </ul>
@@ -30,16 +31,19 @@ export default function DressCode() {
           <div>
             <h3 style={{ marginBottom: '1rem' }}>For women</h3>
             <ul className="marked">
-              <li>Smart casual, or the national dress of your own tradition.</li>
-              <li>Flat or low shoes are worth it; the ceilidh is not gentle.</li>
+              <li>Midi dresses are generally the easiest thing to wear.</li>
+              <li>
+                Flats or low heels are worth it: there is a great deal of
+                movement in the dancing.
+              </li>
               <li>Bring a wrap; the hall is cool before dinner.</li>
             </ul>
           </div>
         </div>
 
         <p className="small muted" style={{ marginTop: '2.5rem', maxWidth: '54ch' }}>
-          National dress, and the customary dress of any tradition represented in the
-          room, is warmly welcome and always has been.
+          National and traditional dress is always encouraged and always welcome,
+          from every tradition represented in the room.
         </p>
         </div>
       </div>
