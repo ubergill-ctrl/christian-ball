@@ -14,7 +14,7 @@ export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
 
       <h1>
         Saint Gabriel&rsquo;s
-        <span className="yr">Orthodox Youth Ceilidh</span>
+        <span className="yr">Orthodox Youth Ceilidh Ball</span>
       </h1>
 
       <hr className="gilt-rule" />

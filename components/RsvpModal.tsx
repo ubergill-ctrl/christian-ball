@@ -97,7 +97,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
     ].filter(Boolean).join('\n');
 
     const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
-      `Ceilidh RSVP — ${form.name || 'a guest'}`
+      `Ceilidh Ball RSVP — ${form.name || 'a guest'}`
     )}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailto;

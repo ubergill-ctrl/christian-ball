@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="foot-cols">
           <div>
             <span className="display" style={{ fontSize: '1.25rem', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-              Saint Gabriel&rsquo;s Ceilidh
+              Saint Gabriel&rsquo;s Ceilidh Ball
             </span>
             <hr className="gilt-rule" style={{ margin: '1rem 0' }} />
             <p className="small muted">
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
 
         <div className="foot-bar">
-          <span>&copy; 2026 Saint Gabriel&rsquo;s Orthodox Youth Ceilidh.</span>
+          <span>&copy; 2026 Saint Gabriel&rsquo;s Orthodox Youth Ceilidh Ball.</span>
           <span>Saturday 7 November 2026</span>
         </div>
       </div>
