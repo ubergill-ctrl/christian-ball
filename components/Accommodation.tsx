@@ -10,10 +10,22 @@ export default function Accommodation() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState(empty);
 
-  /* TODO: this form does not send anywhere yet. Wire it to a Vercel route
-     handler, Formspree, or Harry's inbox before launch. */
+  /* No backend yet: this hands off to the guest's own mail client with the
+     message pre-filled, so it reaches Harry's inbox without one. Swap for a
+     fetch() to Formspree (or a Vercel route handler) once a proper endpoint
+     exists. */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const body = [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      '',
+      form.notes,
+    ].join('\n');
+    const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
+      `Accommodation — ${form.name || 'a guest'}`
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
     setSent(true);
   };
 
@@ -93,8 +105,9 @@ export default function Accommodation() {
 
           {sent ? (
             <p className="muted">
-              Thank you, {form.name || 'friend'}. Someone will write back to{' '}
-              {form.email || 'you'} shortly.
+              Your mail app should now be open with a message ready to send,
+              {' '}{form.name || 'friend'}. If nothing opened, write to us
+              directly at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
             </p>
           ) : (
             <>
