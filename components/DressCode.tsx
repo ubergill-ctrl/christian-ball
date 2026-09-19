@@ -9,11 +9,10 @@ export default function DressCode() {
         <div className="column">
         <div className="sec-head">
           <span className="label">Dress</span>
-          <h2>Semi-formal</h2>
+          <h2>Formal</h2>
           <p>
-            Semi-formal, rather than black tie. Dress as you would for a good
-            parish celebration: smart, comfortable enough to dance in, and with
-            national or traditional dress warmly encouraged.
+            Dress as you would for a formal dinner, with layers to take on or
+            off at your discretion. Kilts are encouraged.
           </p>
         </div>
 
@@ -42,8 +41,7 @@ export default function DressCode() {
         </div>
 
         <p className="small muted" style={{ marginTop: '2.5rem', maxWidth: '54ch' }}>
-          National and traditional dress is always encouraged and always welcome,
-          from every tradition represented in the room.
+          Kilts are always encouraged and always welcome.
         </p>
         </div>
       </div>

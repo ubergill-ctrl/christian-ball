@@ -17,8 +17,8 @@ export default function Footer() {
             <hr className="gilt-rule" style={{ margin: '1rem 0' }} />
             <p className="small muted">
               An evening of dinner, music and dancing for Orthodox young people,
-              held at Hillbark. Organised by Father Paul; no one is paid out of the
-              ticket price.
+              held at Hulme Hall, Port Sunlight. Organised by Father Paul; no one
+              is paid out of the ticket price.
             </p>
           </div>
 
@@ -27,6 +27,7 @@ export default function Footer() {
             <ul>
               <li><a href="#about">The evening</a></li>
               <li><a href="#order">Order of the evening</a></li>
+              <li><a href="#menu">Menu</a></li>
               <li><a href="#dress">Dress</a></li>
               <li><a href="#venue">Getting there</a></li>
               <li><a href="#stay">Accommodation</a></li>

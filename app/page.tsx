@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import FilmFeature from '@/components/FilmFeature';
 import Schedule from '@/components/Schedule';
+import Menu from '@/components/Menu';
 import Gallery from '@/components/Gallery';
 import DressCode from '@/components/DressCode';
 import VenueGuide from '@/components/VenueGuide';
@@ -56,8 +57,8 @@ export default function Home() {
               <div className="ord-item">
                 <time>Dinner</time>
                 <div>
-                  <h4>Two courses, seated</h4>
-                  <p>Chef&rsquo;s choice, served at table, no fuss made of it.</p>
+                  <h4>Three courses, seated</h4>
+                  <p>A set menu, pre-ordered, served at table, no fuss made of it.</p>
                 </div>
               </div>
               <div className="ord-item">
@@ -70,8 +71,8 @@ export default function Home() {
               <div className="ord-item">
                 <time>Dress</time>
                 <div>
-                  <h4>Semi-formal, or national dress</h4>
-                  <p>Ties optional. National and traditional dress is always welcome.</p>
+                  <h4>Formal, and kilts encouraged</h4>
+                  <p>Ties optional. Kilts are always welcome.</p>
                 </div>
               </div>
             </div>
@@ -80,6 +81,7 @@ export default function Home() {
       </section>
 
       <Schedule />
+      <Menu onOpenRsvp={openRsvp} />
       <Gallery />
       <DressCode />
       <VenueGuide />

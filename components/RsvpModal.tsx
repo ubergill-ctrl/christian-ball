@@ -14,6 +14,9 @@ const empty = {
   phone: '',
   guests: '1',
   parish: '',
+  starter: '',
+  main: '',
+  dessert: '',
   notes: '',
 };
 
@@ -69,9 +72,11 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
         ) : (
           <>
             <span className="label">Write to Father Paul</span>
-            <h3 style={{ margin: '0.5rem 0 0.4rem' }}>Questions, invoices and dietary notes</h3>
+            <h3 style={{ margin: '0.5rem 0 0.4rem' }}>Menu choices, questions and dietary notes</h3>
             <p className="small muted" style={{ marginBottom: '1.5rem' }}>
-              This is not a booking. It reaches Father Paul, who will write back.
+              This is not a booking. Once you have taken a place at table, use
+              this to send your menu choices and any dietary requirements; it
+              reaches Father Paul, who will write back.
             </p>
 
             <form onSubmit={handleSubmit} className="stack">
@@ -118,8 +123,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
                   >
                     <option value="1">One</option>
                     <option value="2">Two</option>
-                    <option value="4">Four</option>
-                    <option value="8">A table of eight</option>
+                    <option value="10">A table of ten</option>
                   </select>
                 </div>
                 <div className="field">
@@ -133,12 +137,55 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
                 </div>
               </div>
 
+              <div className="field-row">
+                <div className="field">
+                  <label htmlFor="rsvp-starter">Starter</label>
+                  <select
+                    id="rsvp-starter"
+                    value={form.starter}
+                    onChange={(e) => setForm({ ...form, starter: e.target.value })}
+                  >
+                    <option value="">Choose a starter</option>
+                    <option value="soup">Homemade soup</option>
+                    <option value="pate">Brandy and orange pâté</option>
+                    <option value="salmon">Smoked salmon and cream cheese tart</option>
+                  </select>
+                </div>
+                <div className="field">
+                  <label htmlFor="rsvp-main">Main</label>
+                  <select
+                    id="rsvp-main"
+                    value={form.main}
+                    onChange={(e) => setForm({ ...form, main: e.target.value })}
+                  >
+                    <option value="">Choose a main</option>
+                    <option value="chicken">Roasted breast of chicken</option>
+                    <option value="pie">Steak and kidney pie</option>
+                    <option value="pork">Pork loin, wild mushroom sauce</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="field">
+                <label htmlFor="rsvp-dessert">Dessert</label>
+                <select
+                  id="rsvp-dessert"
+                  value={form.dessert}
+                  onChange={(e) => setForm({ ...form, dessert: e.target.value })}
+                >
+                  <option value="">Choose a dessert</option>
+                  <option value="crumble">Apple and cinnamon crumble</option>
+                  <option value="trifle">Banana and Baileys trifle</option>
+                  <option value="profiteroles">Profiteroles</option>
+                </select>
+              </div>
+
               <div className="field">
                 <label htmlFor="rsvp-notes">Anything we should know</label>
                 <textarea
                   id="rsvp-notes"
                   rows={3}
-                  placeholder="Dietary requirements, access, who you would like to sit with"
+                  placeholder="Dietary requirements, access, who you would like to sit with, or menu choices for other guests on your booking"
                   value={form.notes}
                   onChange={(e) => setForm({ ...form, notes: e.target.value })}
                 />

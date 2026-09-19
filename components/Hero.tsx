@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const VENUE = process.env.NEXT_PUBLIC_EVENT_VENUE || 'Hillbark Hotel';
+const VENUE = process.env.NEXT_PUBLIC_EVENT_VENUE || 'Hulme Hall';
 const CITY = process.env.NEXT_PUBLIC_EVENT_CITY || 'Wirral';
 
 export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
@@ -20,17 +20,17 @@ export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
       <hr className="gilt-rule" />
 
       <p className="invitation narrow">
-        You are warmly invited to an evening of dinner, music and dancing at Hillbark,
-        with a five-piece ceilidh band and a caller to see you through the steps.
-        Dress is semi-formal, and national or traditional dress is warmly
-        encouraged: come as you would to a good parish celebration.
+        You are warmly invited to an evening of dinner, music and dancing at Hulme
+        Hall, Port Sunlight, with a five-piece ceilidh band and a caller to see you
+        through the steps. Dress is formal, with layers to take on or off at
+        your discretion, and kilts are encouraged.
       </p>
 
       <div className="hero-meta">
         <span className="hero-meta__date"><b>Saturday 7 November 2026</b></span>
         <span><b>Six o&rsquo;clock</b> &middot; reception</span>
         <span><b>{VENUE}</b> &middot; {CITY}</span>
-        <span><b>Semi-formal</b> &middot; national dress welcome</span>
+        <span><b>Formal</b> &middot; kilts encouraged</span>
       </div>
 
       <div className="row">
