@@ -8,6 +8,10 @@ const CITY = process.env.NEXT_PUBLIC_EVENT_CITY || 'Wirral';
 export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
   return (
     <section className="container hero">
+      <span className="small quiet">
+        St Elisabeth&rsquo;s Parish Youth Group presents
+      </span>
+
       <span className="label">
         Saturday, the seventh of November 2026
       </span>
@@ -18,6 +22,22 @@ export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
       </h1>
 
       <hr className="gilt-rule" />
+
+      <p className="small muted" style={{ maxWidth: '46ch' }}>
+        Blessed by His Grace Bishop Irenei of Western Europe and London.
+      </p>
+
+      <div className="org-logos">
+        <div className="org-logo">
+          <img src="/logos/st-elisabeths.webp" alt="St Elisabeth&rsquo;s Parish" />
+        </div>
+        <div className="org-logo">
+          <img src="/logos/liverpool-ocs.webp" alt="Liverpool Orthodox Christian Society" />
+        </div>
+        <div className="org-logo">
+          <img src="/logos/rocor-youth-london.webp" alt="ROCOR Youth London" />
+        </div>
+      </div>
 
       <p className="invitation narrow">
         You are warmly invited to an evening of dinner, music and dancing at Hulme

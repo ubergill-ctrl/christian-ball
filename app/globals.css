@@ -451,6 +451,29 @@ section[id] { scroll-margin-top: 96px; }
 }
 .hero .invitation { font-size: 1.1rem; color: var(--ink-2); line-height: 1.75; }
 
+.org-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+.org-logo {
+  flex: none;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--gilt-soft);
+  background: var(--vellum);
+}
+.org-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* --------------------------------------------------------- Film, full bleed */
 /* The one dark note on the page: a screening, not a UI panel. Sits edge to
    edge between the invitation and the first prose section. */
