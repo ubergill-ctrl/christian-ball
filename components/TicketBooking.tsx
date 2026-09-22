@@ -32,11 +32,11 @@ const tiers = [
   },
   {
     name: 'Parish ticket',
-    note: 'A table of ten, for a parish or a group',
-    price: '£500',
-    per: 'for ten guests, dinner included',
+    note: 'A table of six, for a parish or a group',
+    price: '£300',
+    per: 'for six guests, dinner included',
     includes: [
-      'A table of ten, named as you wish',
+      'A table of six, named as you wish',
       'Your parish or group named in the programme',
       'Menu choices and dietary requirements collected for the whole table',
     ],

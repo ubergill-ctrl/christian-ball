@@ -193,7 +193,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
                   >
                     <option value="1">One</option>
                     <option value="2">Two</option>
-                    <option value="10">A table of ten</option>
+                    <option value="6">A table of six</option>
                   </select>
                 </div>
                 <div className="field">
