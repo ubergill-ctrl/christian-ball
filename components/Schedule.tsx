@@ -9,22 +9,22 @@ const order = [
     note: 'Guests received as they arrive. Something to drink, and the band tuning up.',
   },
   {
-    time: '4.00',
+    time: '5.00',
     title: 'Grace and dinner',
     note: 'Grace said, followed by a relaxed three-course set menu at table, pre-ordered.',
   },
   {
-    time: '5.15',
+    time: '5.45',
     title: 'A short address',
     note: 'A few words from Father Paul. Ten minutes, no longer.',
   },
   {
-    time: '5.45',
+    time: '6.00',
     title: 'The ceilidh',
     note: 'A five-piece band and a caller. Every dance talked through before it starts.',
   },
   {
-    time: '8.30',
+    time: '11.00',
     title: 'Carriages',
     note: 'The band plays out, and we find our coats.',
   },
@@ -39,8 +39,8 @@ export default function Schedule() {
           <span className="label">Order of the evening</span>
           <h2>The evening, hour by hour</h2>
           <p>
-            Dinner is served promptly at four. The reception runs the hour
-            before it, from three.
+            Dinner is served promptly at five. The reception runs the two
+            hours before it, from three.
           </p>
         </div>
 
