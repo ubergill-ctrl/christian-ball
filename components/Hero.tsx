@@ -13,7 +13,7 @@ export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
       </span>
 
       <span className="label">
-        Saturday, the seventh of November 2026
+        Sunday, the eighth of November 2026
       </span>
 
       <h1>
@@ -47,8 +47,8 @@ export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
       </p>
 
       <div className="hero-meta">
-        <span className="hero-meta__date"><b>Saturday 7 November 2026</b></span>
-        <span><b>Six o&rsquo;clock</b> &middot; reception</span>
+        <span className="hero-meta__date"><b>Sunday 8 November 2026</b></span>
+        <span><b>Three o&rsquo;clock</b> &middot; reception</span>
         <span><b>{VENUE}</b> &middot; {CITY}</span>
         <span><b>Formal</b> &middot; kilts encouraged</span>
       </div>

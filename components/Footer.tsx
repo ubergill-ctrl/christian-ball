@@ -47,7 +47,7 @@ export default function Footer() {
 
         <div className="foot-bar">
           <span>&copy; 2026 Saint Gabriel&rsquo;s Orthodox Youth Ceilidh Ball.</span>
-          <span>Saturday 7 November 2026</span>
+          <span>Sunday 8 November 2026</span>
         </div>
       </div>
     </footer>
