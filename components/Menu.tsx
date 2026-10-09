@@ -57,13 +57,26 @@ export default function Menu({ onOpenRsvp }: { onOpenRsvp: () => void }) {
           ))}
         </div>
 
-        <p className="small quiet" style={{ marginTop: '2.5rem' }}>
-          Once you have a place at table,{' '}
-          <button onClick={onOpenRsvp} className="btn-text" style={{ display: 'inline' }}>
-            write and let us know your choices
-          </button>{' '}
-          and any dietary requirements, for each guest on your booking.
-        </p>
+        <div
+          className="panel panel--lead"
+          style={{ marginTop: '2.5rem', textAlign: 'center' }}
+        >
+          <span className="label">Please read</span>
+          <h3 style={{ margin: '0.5rem 0 0.75rem' }}>Confirm your menu choices</h3>
+          <p className="muted" style={{ maxWidth: '52ch', marginInline: 'auto' }}>
+            Once you have taken a place at table, come back here to tell us
+            your choices and any dietary requirements, for every guest on
+            your booking. If we have not heard from you, a meal will be
+            chosen for you on the day.
+          </p>
+          <button
+            onClick={onOpenRsvp}
+            className="btn btn--fill"
+            style={{ marginTop: '1.25rem' }}
+          >
+            Submit your menu choices
+          </button>
+        </div>
       </div>
     </section>
   );
