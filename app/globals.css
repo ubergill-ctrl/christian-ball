@@ -630,6 +630,18 @@ section[id] { scroll-margin-top: 96px; }
   font-variant-numeric: tabular-nums;
 }
 .tier .marked { margin-block: 1.35rem; padding-top: 1.35rem; border-top: 1px solid var(--rule); }
+.tier-badge {
+  display: inline-block;
+  margin-top: 0.9rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--claret-wash);
+  color: var(--claret);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
 .tier .foot { margin-top: auto; display: grid; gap: 0.6rem; justify-items: center; }
 
 /* -------------------------------------------------------------------- Modal */

@@ -33,8 +33,9 @@ const tiers = [
   {
     name: 'Parish ticket',
     note: 'A table of six, for a parish or a group',
-    price: '£300',
+    price: '£270',
     per: 'for six guests, dinner included',
+    badge: '25% off per person, booked together',
     includes: [
       'A table of six, named as you wish',
       'Your parish or group named in the programme',
@@ -66,6 +67,8 @@ export default function TicketBooking({ onOpenRsvp }: { onOpenRsvp: () => void }
             >
               <span className="label label--quiet">{tier.note}</span>
               <h3 style={{ margin: '0.5rem 0 0' }}>{tier.name}</h3>
+
+              {tier.badge && <span className="tier-badge">{tier.badge}</span>}
 
               <p className="price" style={{ marginTop: '1.1rem' }}>{tier.price}</p>
               <p className="small muted" style={{ marginTop: '0.3rem' }}>{tier.per}</p>
