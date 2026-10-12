@@ -8,7 +8,7 @@ const tiers = [
     name: 'Single ticket',
     note: 'A single place',
     price: '£60',
-    per: 'per guest, dinner included',
+    per: 'per head, dinner included',
     includes: [
       'Reception and a three-course set menu at table',
       'A choice of dishes per course, pre-ordered ahead of the evening',
@@ -21,7 +21,7 @@ const tiers = [
     name: 'Double ticket',
     note: 'A pair, at a discount',
     price: '£110',
-    per: 'for two guests, £10 less than two single tickets',
+    per: 'total for two — £55 per head',
     includes: [
       'Everything above, for two, at a discounted rate',
       'Seated together, on a table of your choosing where possible',
@@ -34,7 +34,7 @@ const tiers = [
     name: 'Parish ticket',
     note: 'A table of six, for a parish or a group',
     price: '£270',
-    per: 'for six guests, dinner included',
+    per: 'total for six — £45 per head',
     badge: '25% off per person, booked together',
     includes: [
       'A table of six, named as you wish',
