@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       <Schedule />
-      <Menu onOpenRsvp={openRsvp} />
+      <Menu />
       <Gallery />
       <DressCode />
       <VenueGuide />

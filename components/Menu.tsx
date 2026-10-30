@@ -29,7 +29,9 @@ const courses = [
   },
 ];
 
-export default function Menu({ onOpenRsvp }: { onOpenRsvp: () => void }) {
+const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeGtchS3m07FFY9g629UVpxPQIN7-2UCUvLn5peJZr0nLY08A/viewform';
+
+export default function Menu() {
   return (
     <section id="menu" className="section">
       <div className="container">
@@ -64,18 +66,22 @@ export default function Menu({ onOpenRsvp }: { onOpenRsvp: () => void }) {
           <span className="label">Please read</span>
           <h3 style={{ margin: '0.5rem 0 0.75rem' }}>Confirm your menu choices</h3>
           <p className="muted" style={{ maxWidth: '52ch', marginInline: 'auto' }}>
-            Once you have taken a place at table, come back here to tell us
-            your choices and any dietary requirements, for every guest on
-            your booking. If we have not heard from you, a meal will be
-            chosen for you on the day.
+            One form per guest, please, even if you have already written to
+            us with choices. If you booked for a group, fill it in once for
+            each person; you may do this on their behalf.
           </p>
-          <button
-            onClick={onOpenRsvp}
+          <p style={{ maxWidth: '52ch', marginInline: 'auto', marginTop: '0.75rem', color: 'var(--claret)', fontWeight: 500 }}>
+            Deadline: Saturday 31 October. After that, choices go to the kitchen.
+          </p>
+          <a
+            href={FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn--fill"
             style={{ marginTop: '1.25rem' }}
           >
             Submit your menu choices
-          </button>
+          </a>
         </div>
       </div>
     </section>
