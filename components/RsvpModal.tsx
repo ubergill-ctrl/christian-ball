@@ -10,27 +10,6 @@ interface RsvpModalProps {
 
 const EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'fatherpaul@newmartyr.info';
 
-const STARTERS = [
-  { id: 'soup', label: 'Homemade soup' },
-  { id: 'pate', label: 'Brandy and orange pâté' },
-  { id: 'salmon', label: 'Smoked salmon and cream cheese tart' },
-];
-const MAINS = [
-  { id: 'chicken', label: 'Roasted breast of chicken' },
-  { id: 'pie', label: 'Steak and kidney pie' },
-  { id: 'pork', label: 'Pork loin, wild mushroom sauce' },
-];
-const DESSERTS = [
-  { id: 'crumble', label: 'Apple and cinnamon crumble' },
-  { id: 'trifle', label: 'Banana and Baileys trifle' },
-  { id: 'profiteroles', label: 'Profiteroles' },
-];
-const label = (list: { id: string; label: string }[], id: string) =>
-  list.find((o) => o.id === id)?.label || '(not chosen)';
-
-type Diner = { starter: string; main: string; dessert: string };
-const emptyDiner: Diner = { starter: '', main: '', dessert: '' };
-
 const emptyForm = {
   name: '',
   email: '',
@@ -40,16 +19,9 @@ const emptyForm = {
   notes: '',
 };
 
-function resizeDiners(diners: Diner[], count: number): Diner[] {
-  const next = diners.slice(0, count);
-  while (next.length < count) next.push({ ...emptyDiner });
-  return next;
-}
-
 export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState(emptyForm);
-  const [diners, setDiners] = useState<Diner[]>([{ ...emptyDiner }]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -60,28 +32,12 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
 
   if (!isOpen) return null;
 
-  const setGuests = (guests: string) => {
-    setForm({ ...form, guests });
-    setDiners((prev) => resizeDiners(prev, Number(guests)));
-  };
-
-  const setDiner = (index: number, patch: Partial<Diner>) => {
-    setDiners((prev) => prev.map((d, i) => (i === index ? { ...d, ...patch } : d)));
-  };
-
   /* No backend yet: this hands off to the guest's own mail client with the
      message pre-filled, so it reaches Father Paul's inbox without one.
      Swap for a fetch() to Formspree (or a Vercel route handler) once a
      proper endpoint exists — the body below is already structured for it. */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    const dinerLines = diners
-      .map((d, i) => {
-        const who = diners.length > 1 ? `Guest ${i + 1}` : form.name || 'Guest';
-        return `${who}: ${label(STARTERS, d.starter)} / ${label(MAINS, d.main)} / ${label(DESSERTS, d.dessert)}`;
-      })
-      .join('\n');
 
     const body = [
       `Name: ${form.name}`,
@@ -90,14 +46,11 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
       `Guests: ${form.guests}`,
       form.parish ? `Parish or organisation: ${form.parish}` : null,
       '',
-      'Menu choices (starter / main / dessert):',
-      dinerLines,
-      '',
       form.notes ? `Notes: ${form.notes}` : null,
     ].filter(Boolean).join('\n');
 
     const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(
-      `Ceilidh Ball RSVP — ${form.name || 'a guest'}`
+      `Ceilidh Ball — ${form.name || 'a guest'}`
     )}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailto;
@@ -107,7 +60,6 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
   const close = () => {
     setSent(false);
     setForm(emptyForm);
-    setDiners([{ ...emptyDiner }]);
     onClose();
   };
 
@@ -142,11 +94,13 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
         ) : (
           <>
             <span className="label">Write to Father Paul</span>
-            <h3 style={{ margin: '0.5rem 0 0.4rem' }}>Menu choices, questions and dietary notes</h3>
+            <h3 style={{ margin: '0.5rem 0 0.4rem' }}>Questions, invoices and dietary notes</h3>
             <p className="small muted" style={{ marginBottom: '1.5rem' }}>
-              This is not a booking. Once you have taken a place at table, use
-              this to send your menu choices and any dietary requirements; it
-              reaches Father Paul, who will write back.
+              This is not a booking, and not where menu choices go &mdash; for
+              those, use{' '}
+              <a href="#menu" onClick={close}>the form in the Menu section</a>.
+              Use this for everything else; it reaches Father Paul, who will
+              write back.
             </p>
 
             <form onSubmit={handleSubmit} className="stack">
@@ -189,7 +143,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
                   <select
                     id="rsvp-guests"
                     value={form.guests}
-                    onChange={(e) => setGuests(e.target.value)}
+                    onChange={(e) => setForm({ ...form, guests: e.target.value })}
                   >
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -205,49 +159,6 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
                     onChange={(e) => setForm({ ...form, parish: e.target.value })}
                   />
                 </div>
-              </div>
-
-              <div className="stack" style={{ gap: '1rem' }}>
-                <label style={{ marginBottom: 0 }}>
-                  Menu choices{diners.length > 1 ? `, for each of your ${diners.length} guests` : ''}
-                </label>
-                {diners.map((diner, i) => (
-                  <div key={i} className="field-row" style={{ alignItems: 'flex-end' }}>
-                    {diners.length > 1 && (
-                      <span className="small quiet" style={{ minWidth: '4.5rem' }}>Guest {i + 1}</span>
-                    )}
-                    <div className="field">
-                      <select
-                        aria-label={`Starter, guest ${i + 1}`}
-                        value={diner.starter}
-                        onChange={(e) => setDiner(i, { starter: e.target.value })}
-                      >
-                        <option value="">Starter</option>
-                        {STARTERS.map((o) => <option key={o.id} value={o.id}>{o.label}</option>)}
-                      </select>
-                    </div>
-                    <div className="field">
-                      <select
-                        aria-label={`Main, guest ${i + 1}`}
-                        value={diner.main}
-                        onChange={(e) => setDiner(i, { main: e.target.value })}
-                      >
-                        <option value="">Main</option>
-                        {MAINS.map((o) => <option key={o.id} value={o.id}>{o.label}</option>)}
-                      </select>
-                    </div>
-                    <div className="field">
-                      <select
-                        aria-label={`Dessert, guest ${i + 1}`}
-                        value={diner.dessert}
-                        onChange={(e) => setDiner(i, { dessert: e.target.value })}
-                      >
-                        <option value="">Dessert</option>
-                        {DESSERTS.map((o) => <option key={o.id} value={o.id}>{o.label}</option>)}
-                      </select>
-                    </div>
-                  </div>
-                ))}
               </div>
 
               <div className="field">
