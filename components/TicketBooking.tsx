@@ -2,7 +2,9 @@
 
 import React from 'react';
 
-/* TODO: replace the placeholder Stripe payment links in .env before launch. */
+/* Flip to false to reopen ticket sales. */
+const SALES_CLOSED = true;
+
 const tiers = [
   {
     name: 'Single ticket',
@@ -59,6 +61,20 @@ export default function TicketBooking({ onOpenRsvp }: { onOpenRsvp: () => void }
           </p>
         </div>
 
+        {SALES_CLOSED && (
+          <div className="panel panel--lead" style={{ marginBottom: '2.5rem', textAlign: 'center' }}>
+            <span className="label">Please note</span>
+            <h3 style={{ margin: '0.5rem 0 0.75rem' }}>Ticket sales are now closed</h3>
+            <p className="muted" style={{ maxWidth: '52ch', marginInline: 'auto' }}>
+              The guest list is final and no further places can be booked. If
+              you believe there has been a mistake,{' '}
+              <button onClick={onOpenRsvp} className="btn-text" style={{ display: 'inline' }}>
+                write to us
+              </button>.
+            </p>
+          </div>
+        )}
+
         <div className="grid-3" style={{ alignItems: 'stretch' }}>
           {tiers.map((tier) => (
             <div
@@ -80,7 +96,11 @@ export default function TicketBooking({ onOpenRsvp }: { onOpenRsvp: () => void }
               </ul>
 
               <div className="foot">
-                {tier.link ? (
+                {SALES_CLOSED ? (
+                  <button className="btn btn--line btn--block" disabled title="Ticket sales are closed">
+                    Tickets closed
+                  </button>
+                ) : tier.link ? (
                   <a
                     href={tier.link}
                     target="_blank"
@@ -94,19 +114,23 @@ export default function TicketBooking({ onOpenRsvp }: { onOpenRsvp: () => void }
                     Booking opens shortly
                   </button>
                 )}
-                <button onClick={onOpenRsvp} className="btn-text">
-                  Or ask for an invoice
-                </button>
+                {!SALES_CLOSED && (
+                  <button onClick={onOpenRsvp} className="btn-text">
+                    Or ask for an invoice
+                  </button>
+                )}
               </div>
             </div>
           ))}
         </div>
 
-        <p className="small quiet" style={{ marginTop: '2.5rem' }}>
-          Payment is handled by Stripe; we never see your card details.
-          If the price is the thing standing in your way, do write to us;
-          a number of places are held back each year for exactly that reason.
-        </p>
+        {!SALES_CLOSED && (
+          <p className="small quiet" style={{ marginTop: '2.5rem' }}>
+            Payment is handled by Stripe; we never see your card details.
+            If the price is the thing standing in your way, do write to us;
+            a number of places are held back each year for exactly that reason.
+          </p>
+        )}
       </div>
     </section>
   );

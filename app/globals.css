@@ -439,6 +439,16 @@ section[id] { scroll-margin-top: 96px; }
   justify-items: center;
   gap: 1.5rem;
 }
+.closed-notice {
+  width: 100%;
+  background: var(--claret);
+  color: var(--vellum);
+  padding: 0.9rem 1.5rem;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+}
 .hero h1 { max-width: 20ch; }
 .hero h1 .yr {
   display: block;

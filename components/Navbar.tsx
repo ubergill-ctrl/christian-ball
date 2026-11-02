@@ -34,7 +34,7 @@ export default function Navbar({ onOpenRsvp }: { onOpenRsvp: () => void }) {
           {links.map((l) => (
             <a key={l.href} href={l.href}>{l.label}</a>
           ))}
-          <a href="#places" className="btn btn--line btn--small">Take a place</a>
+          <a href="#places" className="btn btn--line btn--small">Tickets</a>
         </nav>
 
         <button
@@ -57,7 +57,7 @@ export default function Navbar({ onOpenRsvp }: { onOpenRsvp: () => void }) {
             onClick={() => setOpen(false)}
             className="btn btn--fill btn--block"
           >
-            Take a place
+            Tickets
           </a>
         </div>
       )}

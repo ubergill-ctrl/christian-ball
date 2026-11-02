@@ -8,6 +8,11 @@ const CITY = process.env.NEXT_PUBLIC_EVENT_CITY || 'Wirral';
 export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
   return (
     <section className="container hero">
+      <div className="closed-notice">
+        Ticket sales and menu choices are now closed. Thank you to
+        everyone who booked &mdash; we look forward to seeing you there.
+      </div>
+
       <span className="small quiet">
         St Elisabeth&rsquo;s Parish Youth Group presents
       </span>
@@ -54,13 +59,8 @@ export default function Hero({ onOpenRsvp }: { onOpenRsvp: () => void }) {
       </div>
 
       <div className="row">
-        <a href="#places" className="btn btn--fill">Take a place</a>
         <button onClick={onOpenRsvp} className="btn btn--line">Write to Father Paul</button>
       </div>
-
-      <p className="small quiet" style={{ maxWidth: '46ch' }}>
-        The list closes on Friday 30 October, or sooner if the room is full.
-      </p>
     </section>
   );
 }
